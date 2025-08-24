@@ -11,6 +11,7 @@ export default function Post() {
     const { slug } = useParams();
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
+    console.log(userData)
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
     const [author, setAuthor] = useState(null);
@@ -64,7 +65,7 @@ export default function Post() {
                 </div>
                 <div className="w-full mb-6">
                         <h1 className="text-2xl font-bold">{post.title}</h1>
-                        {author && <p className="text-gray-500">By: {author.name}</p>}
+                        
                     </div>
                 <div className="browser-css">
                     {parse(post.content)}
